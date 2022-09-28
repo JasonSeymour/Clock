@@ -12,11 +12,6 @@ class clockApp(App):
         if self.sw_started:
             self.sw_seconds += nap
         minutes, seconds = divmod(self.sw_seconds, 60)
-        self.root.ids.stopwatch.text = (
-            '%02d:%02d.[size=40]%02d[/size]'%
-            (int(minutes), int(seconds),
-             int(seconds* 100 % 100))
-        )
         self.root.ids.time.text = strftime('[b]%H[/b]:%M:%S')
     def on_start(self):
         Clock.schedule_interval(self.update_time, 0)
